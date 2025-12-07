@@ -17,7 +17,10 @@ const deploy = async () => {
             },
         },
         settings: {
-            evmVersion: 'paris', // Force EVM version to Paris
+            optimizer: {
+                enabled: true,
+                runs: 200,
+            },
             outputSelection: {
                 '*': {
                     '*': ['*'],
