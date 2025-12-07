@@ -1,0 +1,37 @@
+Project Review: Blockchain Document Storage System
+
+1. Project Overview
+   - A Node.js application that allows users to upload documents.
+   - Files are stored locally, and their cryptographic hash (SHA-256) is stored on a local Ethereum blockchain (Ganache).
+   - Ensures data integrity and immutability of the record.
+
+2. Technology Stack
+   - Backend: Node.js, Express.js
+   - Blockchain: Ganache (Local Ethereum Testnet)
+   - Smart Contract: Solidity (EVM Version: Paris)
+   - Interaction Library: Web3.js
+
+3. Dependencies Used (Total: 8)
+   - express: Web server framework.
+   - multer: Middleware for handling file uploads.
+   - web3: Library to interact with the Ethereum blockchain.
+   - solc: Solidity compiler for compiling the smart contract.
+   - ganache: Local blockchain emulator.
+   - nodemon: Development tool for auto-restarting the server.
+   - axios: HTTP client (used for testing).
+   - form-data: Library to create form data (used for testing).
+
+4. Configuration Details
+   - Blockchain Port: 8545
+   - Server Port: 3000
+   - EVM Version: 'paris' (Explicitly set in deploy.js for compatibility)
+
+5. Gas Settings
+   - Block Gas Limit (Ganache): 10,000,000 (Configured in package.json "chain" script)
+   - Transaction Gas Limit: Dynamic (Calculated via estimateGas + 50,000 buffer in server.js)
+   - Gas Price: Default (or 1 Gwei in deployment script)
+
+6. API Endpoints
+   - POST /api/pos
+     - Inputs: memberId, documentType, document (file)
+     - Action: Uploads file, calculates hash, stores metadata on blockchain.
